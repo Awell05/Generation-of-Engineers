@@ -1,54 +1,35 @@
 const inquirer = require('inquirer');
-const Employee = require('./lib/Employee');
-const manager = require('./lib/Manager');
-
+const fs = require('fs');
+const {engineerQs, Engineer} = require('./lib/Engineer');
+const {internQs, Intern} = require('./lib/Intern');
+const { managerQs, Manager } = require('./lib/Manager');
+const team = []
 inquirer
-.prompt ([
-    {
-        type: 'input',
-        message: "What is the team manager's name?",
-        name: 'name',
-    },
-    { 
-        type: 'input',
-        message: "What is the team manager's id?",
-        name: 'id',       
-    },
-    {
-        type: 'input',
-        message: "What is the team manager's email ?",
-        name: 'email',
-    },
-    {
-        type: 'input',
-        message: "What is the team manager's office number?",
-        name: 'number',
-    },
-    {
-        type: 'list',
-        message: 'Which type of team member would you like to add?',
-        name: 'teamMember',
-        choices: ['Engineer', 'Intern', 'I do not want to add another member'],
-    }
+    .prompt(managerQs)
+    .then((answer) => {
+        console.log(answer);
+        const newManager = new Manager(answer.name,answer.id,answer.email,answer.number)
+        console.log(newManager)
+        team.push(newManager);
+        console.log(team);
+        return
+        switch (answer.teamMember) {
+            case "Engineer":
+                promptEngineer()        
+                break;
+            default:
+                promptIntern()
+                break;
+        }
+    }).catch((err) => {
+        console.log(err)
+    });
 
-])
-.then((answer)=>{
-    // console.log(answer);
-    switch(answer.teamMember) {
-        case "Engineer":
-        const engineer = require('./lib/Engineer');
-        return engineer;
-        break;
-        case "Intern":
-        const intern = require('./lib/Intern');
-        return intern;
-        break;
-        case "I do not want to add another member":
-        console.log("you did not want to add anyone else");
-        const employeeInfo = new Employee(answer.name, answer.id, answer.email);
-        console.log(employeeInfo);
-        break;
+    function promptEngineer(){
+        console.log("prompt engineer trigerred")
+        //provide prompt for engineer and push answers to team array
     }
-}).catch((err)=>{
-    console.log(err)
-});
+    
+    function promptIntern(){
+        console.log("prompt intern trigerred")
+    }

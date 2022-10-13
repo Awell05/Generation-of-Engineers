@@ -1,9 +1,14 @@
-const employee = require('../lib/Employee');
+const Employee = require('../lib/Employee');
+const employeeInfo = new Employee ("Andreshea Caldwell",1,"andreshea@email.com");
 
 describe('employee', () => {
-    it ('should provide prompts to user to select team role', ()=>{
-       const employeeInfo = new Employee ();
+    it ('should create an instantion of an employee class', ()=>{
+       expect(typeof(employeeInfo)).toEqual("object")
+    })
+})
 
-       expect(employee).toEqual(employeeInfo)
+describe('class Employee name property', ()=>{
+    it('the getName method should return the name', ()=>{
+        expect(employeeInfo.getName()).toEqual("Andreshea Caldwell")
     })
 })
