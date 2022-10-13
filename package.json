@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Awell05/Generation-of-Engineers#readme",
   "dependencies": {
+    "fs-js": "^1.0.6",
     "inquirer": "^8.2.4"
   },
   "devDependencies": {

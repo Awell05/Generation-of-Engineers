@@ -40,7 +40,8 @@ inquirer
         return engineer;
         break;
         case "Intern":
-        console.log('you have chosen intern team memeber');
+        const intern = require('./lib/Intern');
+        return intern;
         break;
         case "I do not want to add another member":
         console.log("you did not want to add anyone else");
@@ -51,5 +52,3 @@ inquirer
 }).catch((err)=>{
     console.log(err)
 });
-
-// how do I trigger the prompts again
