@@ -4,6 +4,7 @@ const { engineerQs, Engineer } = require('./lib/Engineer');
 const { internQs, Intern } = require('./lib/Intern');
 const { managerQs, Manager } = require('./lib/Manager');
 const team = []
+
 inquirer
     .prompt(managerQs)
     .then((answer) => {
@@ -66,6 +67,7 @@ function promptEngineer() {
                         break;
                     default:
                         console.log("you don't want hire more people, huh?")
+                        // generateHTML()
                 }
             }).catch((err) => {
                 console.log(err)
