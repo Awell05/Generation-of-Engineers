@@ -1,9 +1,17 @@
-const engineer = require('../lib/Engineer');
-
+const {Engineer} = require('../lib/Engineer');
+const engineerInfo = new Engineer ("Jackie", 9, "jki@email.com", "jackill09");
 describe('Engineer', () => {
-    it ('should provide prompts to user to select team role and generate role and github', ()=>{
-       const engineerInfo = new Enginner ();
-
-       expect(Engineer).toEqual(engineerInfo);
+    it ('should create new engineer class', ()=>{
+       expect(typeof(engineerInfo)).toEqual("object");
+    })
+})
+describe('Engineer', () => {
+    it ('getGithub method should return github', () => {
+        expect(engineerInfo.getGithub()).toEqual("jackill09");
+    })
+})
+describe("Engineer", () => {
+    it('getRole method should return role', () =>{
+        expect(engineerInfo.getRole()).toEqual("Engineer")
     })
 })
