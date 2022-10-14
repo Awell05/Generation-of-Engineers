@@ -12,7 +12,6 @@ inquirer
         console.log(newManager)
         team.push(newManager);
         console.log(team);
-        return
         switch (answer.teamMember) {
             case "Engineer":
                 promptEngineer()        

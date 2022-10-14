@@ -12,3 +12,18 @@ describe('class Employee name property', ()=>{
         expect(employeeInfo.getName()).toEqual("Andreshea Caldwell")
     })
 })
+describe('class Employee id property', () =>{
+    it('the getId method should return the id', ()=>{
+        expect(employeeInfo.getId()).toEqual(1)
+    })
+})
+describe('class Employee email property', () =>{
+    it('the getEmail method should return the email', () =>{
+        expect(employeeInfo.getEmail()).toEqual("andreshea@email.com")
+    })
+})
+describe('class Employee role property', () =>{
+    it('the getRole method should return the role',()=>{
+        expect(employeeInfo.getRole()).toEqual('Employee')
+    })
+})
