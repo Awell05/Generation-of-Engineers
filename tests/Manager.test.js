@@ -1,9 +1,8 @@
-const manager = require('../lib/Manager');
-
-describe('manager',() =>{
-    it ('should generate a prompt for the user to input managers name, employee ID, email address, and office number'), () => {
-        // const manager = new Manager {prompt.name, prompt.id, prompt.email,prompt.officeNumber};
-        
-        expect(manager).toEqual(managerInfo);
-    }
+const {Manager} = require('../lib/Manager');
+const managerInfo = new Manager ("Leroy", 2, "leroy@email.com", 5687898741);
+describe('Manager',() =>{
+    it ('it should create an new manager class', () => {
+        expect(typeof(managerInfo)).toEqual("object");
+    })
 })
+
