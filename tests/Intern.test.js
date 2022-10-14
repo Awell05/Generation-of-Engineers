@@ -1,9 +1,18 @@
-const intern = require('../lib/Intern');
+const {Intern} = require('../lib/Intern');
+const internInfo = new Intern ("toya",5,"toya@email.com","USC");
 
 describe('Intern', () => {
-    it ('should provide prompts to user to select team role and generate role and school', ()=>{
-       const internInfo = new Intern ();
-
-       expect(Intern).toEqual(internInfo);
+    it ('should create an intern object', ()=>{
+       expect(typeof(internInfo)).toEqual('object');
+    })
+})
+describe('Intern', () => {
+    it('getSchool method should return school', ()=> {
+        expect(internInfo.getSchool()).toEqual("USC");
+    })
+})
+describe('Intern', () => {
+    it('getRole method should return role', () =>{
+        expect(internInfo.getRole()).toEqual("Intern");
     })
 })
