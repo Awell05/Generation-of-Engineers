@@ -1,22 +1,22 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const {engineerQs, Engineer} = require('./lib/Engineer');
-const {internQs, Intern} = require('./lib/Intern');
+const { engineerQs, Engineer } = require('./lib/Engineer');
+const { internQs, Intern } = require('./lib/Intern');
 const { managerQs, Manager } = require('./lib/Manager');
 const team = []
 inquirer
     .prompt(managerQs)
     .then((answer) => {
         console.log(answer);
-        const newManager = new Manager(answer.name,answer.id,answer.email,answer.number)
+        const newManager = new Manager(answer.name, answer.id, answer.email, answer.number)
         console.log(newManager)
         team.push(newManager);
         console.log(team);
         switch (answer.teamMember) {
             case "Engineer":
-                promptEngineer()        
+                promptEngineer()
                 break;
-            default:
+            case "Intern":
                 promptIntern()
                 break;
         }
@@ -24,11 +24,50 @@ inquirer
         console.log(err)
     });
 
-    function promptEngineer(){
-        console.log("prompt engineer trigerred")
-        //provide prompt for engineer and push answers to team array
+function promptEngineer() {
+    inquirer
+        .prompt(engineerQs)
+        .then((answer) => {
+            console.log(answer)
+            const newEngineer = new Engineer(answer.name, answer.id, answer.email, answer.github)
+            console.log(newEngineer);
+            team.push(newEngineer);
+            console.log(team);
+            switch (answer.teamMember) {
+                case "Engineer":
+                    promptEngineer()
+                    break;
+                case "Intern":
+                    promptIntern()
+                    break;
+                default:
+                    console.log("you don't want hire more people, huh?")
+            }
+        }).catch((err) => {
+            console.log(err)
+        });
     }
-    
+
     function promptIntern(){
-        console.log("prompt intern trigerred")
+        inquirer
+            .prompt(internQs)
+            .then((answer) => {
+                console.log(answer)
+                const newIntern = new Intern(answer.name, answer.id, answer.email, answer.school)
+                console.log(newIntern);
+                team.push(newIntern);
+                console.log(team);
+                switch (answer.teamMember) {
+                    case "Engineer":
+                        promptEngineer()
+                        break;
+                    case "Intern":
+                        promptIntern()
+                        break;
+                    default:
+                        console.log("you don't want hire more people, huh?")
+                }
+            }).catch((err) => {
+                console.log(err)
+            });
     }
