@@ -4,7 +4,7 @@ const { engineerQs, Engineer } = require('./lib/Engineer');
 const { internQs, Intern } = require('./lib/Intern');
 const { managerQs, Manager } = require('./lib/Manager');
 const generateHtml = require('./src/generateHtml');
-const generateCss = require('./src/generateCss') 
+const generateCss = require('./src/generateCss');
 const team = []
 
 inquirer

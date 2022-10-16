@@ -11,6 +11,12 @@
 <body>
     <nav class ="nav"> My Team </nav>
 <div class = "div" >
+(team) => {
+    team.forEach(employee => {
+        let cardText = document.createElment("div");
+        cardText.textContent = employee.manager, employee.engineer, employee.intern;
+    })
+}
 {generateManagerCards()}
     {generateEngineerCards()}
     {generateInternCards()}

@@ -1,15 +1,14 @@
 const fs = require('fs');
 
-// const generateCards = (team) => {
-//     team.forEach(employee => {
-//         let cardText = document.createElment("div");
-//         cardText.textContent = team.manager, team.engineer, team.intern;
-//     })
-// }
+const generateCards = (team) => {
+    team.forEach(employee => {
+        let cardText = document.createElment("div");
+        cardText.textContent = employee.manager, employee.engineer, employee.intern;
+    })
+}
 
 // function generateManagerCards(manager){
-//     return `<div>${manager.name}</div>`
-// }
+//     return `<div>${manager.name}</div>`}
 
 
 
@@ -28,6 +27,7 @@ const generateHtml = ()=> {
 <body>
     <nav class ="nav"> My Team </nav>
 <div class = "div" >
+${generateCards}
 {generateManagerCards()}
     {generateEngineerCards()}
     {generateInternCards()}

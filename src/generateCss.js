@@ -17,8 +17,8 @@ const generateCss = () => {
      }
 
      .div {
-        color: gray;
-        background-color: blue;
+        color: black;
+        background-color: white;
         width: 40%;
         height: 300px;
      }
