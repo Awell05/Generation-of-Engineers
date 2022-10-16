@@ -2,8 +2,7 @@ const fs = require('fs');
 
 const generateCards = (team) => {
     team.forEach(employee => {
-        let cardText = document.createElment("div");
-        cardText.textContent = employee.manager, employee.engineer, employee.intern;
+        return employee.manager, employee.engineer, employee.intern;
     })
 }
 
@@ -27,7 +26,7 @@ const generateHtml = ()=> {
 <body>
     <nav class ="nav"> My Team </nav>
 <div class = "div" >
-${generateCards}
+{generateCards}
 {generateManagerCards()}
     {generateEngineerCards()}
     {generateInternCards()}
