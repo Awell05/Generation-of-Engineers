@@ -3,6 +3,7 @@ const fs = require('fs');
 const { engineerQs, Engineer } = require('./lib/Engineer');
 const { internQs, Intern } = require('./lib/Intern');
 const { managerQs, Manager } = require('./lib/Manager');
+const generateHtml = require('./src/generateHtml');
 const team = []
 
 inquirer
@@ -42,7 +43,8 @@ function promptEngineer() {
                     promptIntern()
                     break;
                 default:
-                    console.log("you don't want hire more people, huh?")
+                    console.log(answer.teamMember);
+                    generateHtml(answer.teamMember); 
             }
         }).catch((err) => {
             console.log(err)
@@ -65,9 +67,9 @@ function promptEngineer() {
                     case "Intern":
                         promptIntern()
                         break;
-                    default:
-                        console.log("you don't want hire more people, huh?")
-                        // generateHTML()
+                    default: 
+                        console.log(answer.teamMember);
+                        generateHtml(answer.teamMember);
                 }
             }).catch((err) => {
                 console.log(err)
