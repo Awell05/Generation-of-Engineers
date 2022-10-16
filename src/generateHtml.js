@@ -1,8 +1,18 @@
 const fs = require('fs');
 
+// const generateCards = (team) => {
+//     team.forEach(employee => {
+//         let cardText = document.createElment("div");
+//         cardText.textContent = team.manager, team.engineer, team.intern;
+//     })
+// }
+
 // function generateManagerCards(manager){
 //     return `<div>${manager.name}</div>`
 // }
+
+
+
 const generateHtml = ()=> {
     let indexData = 
      `
@@ -12,10 +22,12 @@ const generateHtml = ()=> {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css"/>
     <title> Software Engineer Team </title>
 </head>
 <body>
-<div>
+    <nav class ="nav"> My Team </nav>
+<div class = "div" >
 {generateManagerCards()}
     {generateEngineerCards()}
     {generateInternCards()}

@@ -4,6 +4,7 @@ const { engineerQs, Engineer } = require('./lib/Engineer');
 const { internQs, Intern } = require('./lib/Intern');
 const { managerQs, Manager } = require('./lib/Manager');
 const generateHtml = require('./src/generateHtml');
+const generateCss = require('./src/generateCss') 
 const team = []
 
 inquirer
@@ -45,12 +46,15 @@ function promptEngineer() {
                 default:
                     console.log(answer.teamMember);
                     generateHtml(answer.teamMember); 
+                    generateCss(answer.teamMember);
             }
         }).catch((err) => {
             console.log(err)
         });
     }
 
+
+    
     function promptIntern(){
         inquirer
             .prompt(internQs)
@@ -70,6 +74,7 @@ function promptEngineer() {
                     default: 
                         console.log(answer.teamMember);
                         generateHtml(answer.teamMember);
+                        generateCss(answer.teamMember);
                 }
             }).catch((err) => {
                 console.log(err)

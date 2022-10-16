@@ -1,0 +1,22 @@
+
+     * {
+        font-family: "Lucida Console", "Courier New", monospace:
+     }
+
+     .nav {
+        background-image: linear-gradient(to right, blue , green);
+        color: white;
+        height: 200 px;
+        padding: 150 px;
+        margin: 150 px;
+        text-align: center;
+    
+     }
+
+     .div {
+        color: gray;
+        background-color: blue;
+        width: 40%;
+        height: 300px;
+     }
+    
