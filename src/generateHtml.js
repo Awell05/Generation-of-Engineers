@@ -42,7 +42,8 @@ fs.writeFile('./dist/index.html', indexData, (err) => {
         team.forEach(employee => {
             switch(getRole(employee)){
                 case "Manager":
-                    
+                    // let managerCard = document.createElement("h3");
+    
                     break;
                 case "Engineer":
 
