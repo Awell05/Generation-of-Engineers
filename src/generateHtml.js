@@ -1,10 +1,6 @@
+const { getRandomValues } = require('crypto');
 const fs = require('fs');
 
-const generateCards = (team) => {
-    team.forEach(employee => {
-        return employee.manager, employee.engineer, employee.intern;
-    })
-}
 
 // function generateManagerCards(manager){
 //     return `<div>${manager.name}</div>`}
@@ -40,6 +36,22 @@ fs.writeFile('./dist/index.html', indexData, (err) => {
         console.log(err);
     else {
             console.log ('Index.HTML file generated. Take a look!');
+    }
+
+    const generateCards = (team) => {
+        team.forEach(employee => {
+            switch(getRole(employee)){
+                case "Manager":
+                    
+                    break;
+                case "Engineer":
+
+                    break;
+                case "Intern":
+
+                 break;
+            }
+        })
     }
 });
 };
