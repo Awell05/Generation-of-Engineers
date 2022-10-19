@@ -5,7 +5,7 @@ const { internQs, Intern } = require('./lib/Intern');
 const { managerQs, Manager } = require('./lib/Manager');
 const generateHtml = require('./src/generateHtml');
 const generateCss = require('./src/generateCss');
-const team = []
+const team = [];
 
 inquirer
     .prompt(managerQs)
@@ -75,7 +75,7 @@ function promptEngineer() {
                         console.log(answer.teamMember);
                         generateHtml(answer.teamMember);
                         generateCss(answer.teamMember);
-                        
+                        generateCards(team);
                 }
             }).catch((err) => {
                 console.log(err)

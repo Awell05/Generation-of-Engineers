@@ -1,13 +1,40 @@
-const { getRandomValues } = require('crypto');
+// const { getRandomValues } = require('crypto');
 const fs = require('fs');
 
-
-// function generateManagerCards(manager){
-//     return `<div>${manager.name}</div>`}
 
 
 
 const generateHtml = ()=> {
+
+    const generateCards = (team) => {
+        let output = '';
+        team.forEach(employee => {
+            switch(getRole(employee)){
+                case "Manager":
+                    output +=
+                     `<li> ${employee.name} </li> 
+                     <li> ${employee.id} </li> 
+                     <li> ${employee.email} </li> 
+                     <li> ${employee.number} </li> `
+                    break;
+                case "Engineer":
+                    output += 
+                    `<li> ${employee.name} </li>
+                    <li> ${employee.id} </li> 
+                    <li> ${employee.email} </li> 
+                    <li> ${employee.github} </li> `
+                    break;
+                case "Intern":
+                    output += `<li> ${employee.name} </li>
+                    <li> ${employee.id} </li> 
+                    <li> ${employee.email} </li> 
+                    <li> ${employee.school} </li> `
+                 break;
+        
+            };
+        });
+    };
+
     let indexData = 
      `
     <!DOCTYPE html>
@@ -22,38 +49,20 @@ const generateHtml = ()=> {
 <body>
     <nav class ="nav"> My Team </nav>
 <div class = "div" >
-{generateCards}
-{generateManagerCards()}
-    {generateEngineerCards()}
-    {generateInternCards()}
+${generateCards()}
 </div>
     <script src="index.js"></script> 
 </body>
 </html>
 `
+
+
 fs.writeFile('./dist/index.html', indexData, (err) => {
     if (err)
         console.log(err);
     else {
             console.log ('Index.HTML file generated. Take a look!');
-    }
-
-    const generateCards = (team) => {
-        team.forEach(employee => {
-            switch(getRole(employee)){
-                case "Manager":
-                    // let managerCard = document.createElement("h3");
-    
-                    break;
-                case "Engineer":
-
-                    break;
-                case "Intern":
-
-                 break;
-            }
-        })
-    }
+    } 
 });
 };
 
